@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <h2 class="text-light">Resturant Record App</h2>
+    <div class="d-flex">
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        ADD Resturant
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron round-3 mb-4 p-5">
+  <h1 class="display-4">Resturant Record Management</h1>
+  <p class="lead">Record Of Resturant</p>
+  <div>
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  
+</div>
+<table class="table mt-4 m-3">
+  <tr>
+    <th>Sn</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Address</th>
+    <th>Service</th>
+  </tr>
+
+  <tr *ngFor="let lis of datalist; let i=index">
+    <td>{{i+1}}</td>
+    <td>{{lis.name}}</td>
+    <td>{{lis.email}}</td>
+    <td>{{lis.mobile}}</td>
+    <td>{{lis.address}}</td>
+    <td>{{lis.service}}</td>
+    <td>
+      <button class="btn btn-info">Edit</button>&nbsp;
+      <button class="btn btn-danger">Delete</button>
+    </td>
+
+  </tr>
+
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Restaurant</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="addPost()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            formControlName="name">
+
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            formControlName="email">
+
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Mobile</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            formControlName="mobile">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Address</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            formControlName="address">
+
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">picture</label>
+          <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            formControlName="service" (change)="upload($event)">
+           
+
+        </div>
+
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">ADD</button>
+      
+
+    </div>
+  </form>
+  </div>
+</div>
+</div>
+<div class="container">
+  <div *ngFor="let a of datalist">
+    <h1>Image</h1>
+    <img src={{a service}}alt="loading">
+  </div>
+</div>
